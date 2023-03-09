@@ -9,6 +9,10 @@ Devise.setup do |config|
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
   # config.secret_key = 'a42b150b56c158d6e064aa257c8434390c921811007f42c5aa16c7455b78e3777087c5a4bcf18bfb0886fdd9296dec34eaa02fc0b47bed58417347eba971ee2d'
+  # A Devise-jwt secret key is required for user session based token generation
+  # config.jwt do |jwt|
+  #   jwt.secret = '0e6303baccc08f6ec6a7ba1247cc194656981f15c3174d7177b8679f2236460b5ee1b41c4538720359a7258bd39363c99ca1728382ef0820b902d4a30b7e06d9'
+  # end 
 
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
@@ -266,7 +270,7 @@ Devise.setup do |config|
   # When set to false, does not sign a user in automatically after their password is
   # reset. Defaults to true, so a user is signed in automatically after a reset.
   # config.sign_in_after_reset_password = true
-
+ 
   # ==> Configuration for :encryptable
   # Allow you to use another hashing or encryption algorithm besides bcrypt (default).
   # You can use :sha1, :sha512 or algorithms from others authentication tools as
