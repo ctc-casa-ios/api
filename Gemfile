@@ -14,6 +14,8 @@ gem "caxlsx_rails", "~> 0.6.3" # excel spreadsheets - TODO can we remove this ve
 gem "cssbundling-rails", "~> 1.1" # compiles css
 gem "delayed_job_active_record"
 gem "devise" # for authentication
+gem "devise-jwt" # for mobile app authentication 
+gem "rack-cors" # unblockings cross-origin requests for app authentication 
 gem "devise_invitable"
 gem "httparty" # for making HTTP network requests 🥳
 gem "twilio-ruby" # twilio helper functions
