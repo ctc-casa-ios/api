@@ -10,6 +10,15 @@ class CasaCasesController < ApplicationController
     @casa_cases = policy_scope(org_cases).includes([:hearing_type, :judge])
     @casa_cases_filter_id = policy(CasaCase).can_see_filters? ? "casa-cases" : ""
     @duties = OtherDuty.where(creator_id: current_user.id)
+    #puts @casa_cases.inspect
+    #puts @casa_cases.as_json
+    #puts @casa_cases.to_json
+    respond_to do |format|
+      format.html { render :index }
+      format.json {
+        render json: @casa_cases.to_json(include: [:hearing_type, :judge]), status: :ok
+      }
+    end
   end
 
   def show
