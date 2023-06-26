@@ -735,4 +735,24 @@ RSpec.describe "/casa_cases", type: :request do
       end
     end
   end
+
+  context "when request format is json" do
+    describe "as a volunteer" do
+      describe "GET /index" do
+        #let(:organization) { build(:casa_org) }
+        let(:user) { create(:volunteer, casa_org: organization) }
+        it "responds as json" do
+          mine = build(:casa_case, casa_org: organization, case_number: "000")
+          user.casa_cases << mine
+          # sign_in user
+          get casa_cases_url, as: :json
+          expect(response).not_to have_http_status(:redirect)
+          expect(response.content_type).to eq("application/json; charset=utf-8")
+          #parsed_body = JSON.parse(response.body)
+          expect(response.body).not_to be_empty
+          #puts response.body
+        end
+      end
+    end
+  end
 end
